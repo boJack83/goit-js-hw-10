@@ -32,7 +32,6 @@ const options = {
         } else {
             button.disabled = false;
             userSelectedDate = selectedDates[0];
-            iziToast.hide({});
         }
     },
   };
@@ -46,7 +45,7 @@ button.disabled = true;
         const time = userSelectedDate - Date.now();
         const { days, hours, minutes, seconds } = convertMs(time);
 
-        if (time < 0) {
+        if (time <= 0) {
             clearInterval(interId);
             input.disabled = false;
             return;
